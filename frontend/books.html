@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livres - Bibliothèque Numérique</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>📚 Bibliothèque Numérique — DIT</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="books.html">Livres</a>
+      <a href="users.html">Utilisateurs</a>
+      <a href="loans.html">Emprunts</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Ajouter un livre</h2>
+      <form id="book-form" class="inline-form">
+        <input type="text" id="title" placeholder="Titre" required>
+        <input type="text" id="author" placeholder="Auteur" required>
+        <input type="text" id="isbn" placeholder="ISBN" required>
+        <input type="text" id="category" placeholder="Catégorie">
+        <input type="number" id="total_copies" placeholder="Exemplaires" min="1" value="1">
+        <button type="submit">➕ Ajouter</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Catalogue des livres</h2>
+      <div class="search-bar">
+        <input type="text" id="search" placeholder="Rechercher par titre, auteur ou ISBN...">
+        <button onclick="loadBooks()">🔍 Rechercher</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Titre</th><th>Auteur</th><th>ISBN</th><th>Catégorie</th><th>Disponibles</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="books-table"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>Projet DevOps — Master 1 IA — DIT — Bibliothèque Numérique Microservices</footer>
+  <div id="toast" class="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/books.js"></script>
+</body>
+</html>

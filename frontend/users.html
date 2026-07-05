@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utilisateurs - Bibliothèque Numérique</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>📚 Bibliothèque Numérique — DIT</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="books.html">Livres</a>
+      <a href="users.html">Utilisateurs</a>
+      <a href="loans.html">Emprunts</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Créer un utilisateur</h2>
+      <form id="user-form" class="inline-form">
+        <input type="text" id="first_name" placeholder="Prénom" required>
+        <input type="text" id="last_name" placeholder="Nom" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <select id="user_type" required>
+          <option value="ETUDIANT">Étudiant</option>
+          <option value="PROFESSEUR">Professeur</option>
+          <option value="PERSONNEL_ADMINISTRATIF">Personnel administratif</option>
+        </select>
+        <button type="submit">➕ Créer</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Liste des utilisateurs</h2>
+      <div class="search-bar">
+        <select id="filter-type" onchange="loadUsers()">
+          <option value="">Tous les types</option>
+          <option value="ETUDIANT">Étudiant</option>
+          <option value="PROFESSEUR">Professeur</option>
+          <option value="PERSONNEL_ADMINISTRATIF">Personnel administratif</option>
+        </select>
+      </div>
+      <table>
+        <thead><tr><th>Nom</th><th>Email</th><th>Type</th><th>Actions</th></tr></thead>
+        <tbody id="users-table"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>Projet DevOps — Master 1 IA — DIT — Bibliothèque Numérique Microservices</footer>
+  <div id="toast" class="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/users.js"></script>
+</body>
+</html>
