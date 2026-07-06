@@ -34,11 +34,11 @@
     <div class="card">
       <h2>État des services</h2>
       <table>
-        <thead><tr><th>Service</th><th>Endpoint</th><th>Statut</th></tr></thead>
+        <thead><tr><th>Service</th><th>Point de terminaison</th><th>Statut</th></tr></thead>
         <tbody id="health-table">
-          <tr><td>Livres</td><td>/api/books</td><td id="health-books">...</td></tr>
-          <tr><td>Utilisateurs</td><td>/api/users</td><td id="health-users">...</td></tr>
-          <tr><td>Emprunts</td><td>/api/loans</td><td id="health-loans">...</td></tr>
+          <tr><td>Livres</td><td>/api/livres</td><td id="health-books">...</td></tr>
+          <tr><td>Utilisateurs</td><td>/api/utilisateurs</td><td id="health-users">...</td></tr>
+          <tr><td>Emprunts</td><td>/api/emprunts</td><td id="health-loans">...</td></tr>
         </tbody>
       </table>
     </div>
@@ -57,9 +57,9 @@
         document.getElementById(id).textContent = '🔴 DOWN';
       }
     }
-    checkHealth('health-books', '/api/books');
-    checkHealth('health-users', '/api/users');
-    checkHealth('health-loans', '/api/loans');
+    checkHealth('health-books', '/api/livres');
+    checkHealth('health-users', '/api/utilisateurs');
+    checkHealth('health-loans', '/api/emprunts');
   </script>
 </body>
 </html>
