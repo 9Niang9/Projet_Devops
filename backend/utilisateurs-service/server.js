@@ -10,10 +10,10 @@ const PORT = process.env.PORT || 3002;
 app.use(cors());
 app.use(express.json());
 
-app.get('/health', (req, res) => res.json({ status: 'UP', service: 'utilisateurs-service' }));
+app.get('/health', (req, res) => res.json({ status: 'UP', service: 'users-service' }));
 
-app.use('/api/utilisateurs', usersRoutes);
+app.use('/api/users', usersRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Utilisateurs-service demarre sur le port ${PORT}`);
+  console.log(`users-service demarre sur le port ${PORT}`);
 });

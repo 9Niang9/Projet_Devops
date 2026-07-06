@@ -3,8 +3,8 @@ const router = express.Router();
 const axios = require('axios');
 const pool = require('../db');
 
-const BOOKS_SERVICE_URL = process.env.BOOKS_SERVICE_URL || 'http://livres-service:3001';
-const USERS_SERVICE_URL = process.env.USERS_SERVICE_URL || 'http://utilisateurs-service:3002';
+const BOOKS_SERVICE_URL = process.env.BOOKS_SERVICE_URL || 'http://books-service:3001';
+const USERS_SERVICE_URL = process.env.USERS_SERVICE_URL || 'http://users-service:3002';
 const LOAN_DURATION_DAYS = 14;
 
 function addDays(date, days) {
@@ -77,15 +77,14 @@ router.post('/', async (req, res) => {
 
     // Verifier que l'utilisateur existe (appel au users-service)
     try {
-      await axios.get(`${USERS_SERVICE_URL}/api/utilisateurs/${user_id}`);
-    } catch (e) {
+      await axios.get(`${USERS_SERVICE_URL}/api/users/${user_id}`);
       return res.status(404).json({ error: "Utilisateur introuvable dans le service Utilisateurs" });
     }
 
     // Verifier la disponibilite du livre (appel au books-service)
     let book;
     try {
-      const bookResp = await axios.get(`${BOOKS_SERVICE_URL}/api/livres/${book_id}`);
+      const bookResp = await axios.get(`${BOOKS_SERVICE_URL}/api/books/${book_id}`);
       book = bookResp.data;
     } catch (e) {
       return res.status(404).json({ error: "Livre introuvable dans le service Livres" });
@@ -104,7 +103,7 @@ router.post('/', async (req, res) => {
     );
 
     // Decrementer le nombre d'exemplaires disponibles
-    await axios.patch(`${BOOKS_SERVICE_URL}/api/livres/${book_id}/availability`, { delta: -1 });
+    await axios.patch(`${BOOKS_SERVICE_URL}/api/books/${book_id}/availability`, { delta: -1 });
 
     const [rows] = await pool.query('SELECT * FROM loans WHERE id = ?', [result.insertId]);
     res.status(201).json(rows[0]);
@@ -130,7 +129,7 @@ router.put('/:id/return', async (req, res) => {
     );
 
     // Reincrementer le nombre d'exemplaires disponibles
-    await axios.patch(`${BOOKS_SERVICE_URL}/api/livres/${loan.book_id}/availability`, { delta: 1 });
+    await axios.patch(`${BOOKS_SERVICE_URL}/api/books/${loan.book_id}/availability`, { delta: 1 });
 
     const [updated] = await pool.query('SELECT * FROM loans WHERE id = ?', [req.params.id]);
     res.json(updated[0]);

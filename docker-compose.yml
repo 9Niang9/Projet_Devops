@@ -29,7 +29,7 @@ services:
   # Microservice Livres
   # ---------------------------------------------------------
   books-service:
-    build: ./backend/books-service
+    build: ./backend/livres-service
     container_name: books-service
     restart: unless-stopped
     environment:
@@ -51,7 +51,7 @@ services:
   # Microservice Utilisateurs
   # ---------------------------------------------------------
   users-service:
-    build: ./backend/users-service
+    build: ./backend/utilisateurs-service
     container_name: users-service
     restart: unless-stopped
     environment:
@@ -73,7 +73,7 @@ services:
   # Microservice Emprunts (communique avec books-service et users-service)
   # ---------------------------------------------------------
   loans-service:
-    build: ./backend/loans-service
+    build: ./backend/emprunts-service
     container_name: loans-service
     restart: unless-stopped
     environment:
