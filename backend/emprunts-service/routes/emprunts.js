@@ -78,6 +78,7 @@ router.post('/', async (req, res) => {
     // Verifier que l'utilisateur existe (appel au users-service)
     try {
       await axios.get(`${USERS_SERVICE_URL}/api/users/${user_id}`);
+    } catch (e) {
       return res.status(404).json({ error: "Utilisateur introuvable dans le service Utilisateurs" });
     }
 
