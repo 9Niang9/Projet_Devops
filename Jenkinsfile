@@ -24,17 +24,17 @@ pipeline {
             parallel {
                 stage('Books-service') {
                     steps {
-                        dir('backend/books-service') { sh 'npm install' }
+                        dir('backend/livres-service') { sh 'npm install' }
                     }
                 }
                 stage('Users-service') {
                     steps {
-                        dir('backend/users-service') { sh 'npm install' }
+                        dir('backend/utilisateurs-service') { sh 'npm install' }
                     }
                 }
                 stage('Loans-service') {
                     steps {
-                        dir('backend/loans-service') { sh 'npm install' }
+                        dir('backend/emprunts-service') { sh 'npm install' }
                     }
                 }
             }
