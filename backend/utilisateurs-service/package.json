@@ -1,5 +1,5 @@
 {
-  "name": "users-service",
+  "name": "utilisateurs-service",
   "version": "1.0.0",
   "description": "Microservice de gestion des utilisateurs - Bibliotheque Numerique DIT",
   "main": "server.js",

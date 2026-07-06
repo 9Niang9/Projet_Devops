@@ -1,5 +1,5 @@
 {
-  "name": "loans-service",
+  "name": "emprunts-service",
   "version": "1.0.0",
   "description": "Microservice de gestion des emprunts - Bibliotheque Numerique DIT",
   "main": "server.js",

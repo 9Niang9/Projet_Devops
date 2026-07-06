@@ -1,5 +1,5 @@
 {
-  "name": "books-service",
+  "name": "livres-service",
   "version": "1.0.0",
   "description": "Microservice de gestion des livres - Bibliotheque Numerique DIT",
   "main": "server.js",

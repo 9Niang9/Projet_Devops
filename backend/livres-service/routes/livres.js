@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 
-// GET /api/books - lister tous les livres, avec recherche optionnelle
-// ?search=titre|auteur|isbn
+// GET /api/livres - lister tous les livres, avec recherche optionnelle
+// ?chercher=titre|auteur|isbn
 router.get('/', async (req, res) => {
   try {
     const { search } = req.query;
