@@ -80,7 +80,7 @@ problèmes de CORS et de centraliser le point d'entrée de l'application.
 
 ### Cloner le dépôt
 ```bash
-git clone <URL_DU_DEPOT>
+git clone https://github.com/9Niang9/Projet_Devops.git
 cd bibliotheque-numerique
 ```
 
